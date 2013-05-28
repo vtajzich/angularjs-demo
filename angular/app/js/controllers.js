@@ -2,11 +2,7 @@ var controllers = angular.module('demo.controllers', []);
 
 controllers.controller('TodoCtrl', function ($scope, TodoService, pi, UserResource) {
 
-    var loadTodos = function () {
-        $scope.todos = TodoService.loadTodos();
-    };
-
-    loadTodos();
+    $scope.todos = TodoService.loadTodos();
 
     $scope.users = UserResource.query();
 
@@ -14,13 +10,13 @@ controllers.controller('TodoCtrl', function ($scope, TodoService, pi, UserResour
 
     $scope.addTodo = function () {
 
-        TodoService.save($scope.todo, loadTodos);
+        TodoService.save($scope.todo);
 
         $scope.todo = {};
     };
 
     $scope.delete = function (todo) {
-        TodoService.delete(todo, loadTodos);
+        TodoService.delete(todo);
     };
 });
 
