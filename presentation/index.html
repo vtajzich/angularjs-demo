@@ -6,28 +6,21 @@
 
 		<title>Angular JS</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
-
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="description" content="Angular JS Basics">
+		<meta name="author" content="Vitek Tajzich | @vitektajzich">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/default.css" id="theme">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
 	</head>
 
 	<body>
@@ -41,7 +34,7 @@
 					<h1>Angular JS</h1>
 					<h3>Develop webapp with pleasure</h3>
 					<p>
-						<small><a href="https://twitter.com/vitektajzich">@vitektajzich</a> | <a href="https://twitter.com/rudovsky">@rudovsky</a> </small>
+						<small><a href="https://twitter.com/vitektajzich">@vitektajzich</a></small>
 					</p>
 				</section>
 
@@ -78,6 +71,9 @@
 
                 <section>
                     <h2>How?</h2>
+
+                    <p class="fragment"><code>&lt;script src="lib/angular/angular.js"&gt;&lt;/script&gt;</code></p>
+                    <p class="fragment">ng-app</p>
                 </section>
 
                 <section>
@@ -85,14 +81,38 @@
                 </section>
 
                 <section>
-                    <h2>Controllers</h2>
-
-                    <p class="fragment">Data</p>
-                    <p class="fragment">Methods on $scope</p>
+                    <h2>Filters</h2>
+                    <p class="fragment">uppercase, lowercase</p>
+                    <p class="fragment">number</p>
+                    <p class="fragment">date</p>
+                    <p class="fragment">currency</p>
+                    <p class="fragment">filter</p>
+                    <p class="fragment">json</p>
                 </section>
 
                 <section>
-                    <h2>Filters</h2>
+                    <section>
+                        <h2>Modules</h2>
+                    </section>
+                    <section>
+                        <h2>How to define new module?</h2>
+                        <pre><code>angular.module('name', [])</code></pre>
+                    </section>
+                    <section>
+                        <h2>What about dependencies?</h2>
+                        <pre><code>angular.module('name', ['nameOfModuleYouDependsOn'])</code></pre>
+                    </section>
+                    <section>
+                        <h2>How to add something to existing module?</h2>
+                        <pre><code>angular.module('name').factory('' function () {})</code></pre>
+                    </section>
+                    <section>
+                        <h2>ngResource</h2>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Controllers</h2>
                 </section>
 
                 <section>
@@ -100,11 +120,14 @@
                 </section>
 
                 <section>
-                    <h2>$resource</h2>
+                    <h2>Services</h2>
+
+                    <p class="fragment">Contains business logic</p>
+                    <p class="fragment">Can be used to exchange data between controllers</p>
                 </section>
 
                 <section>
-                    <h2>Services</h2>
+                    <h2>$resource</h2>
                 </section>
 
                 <section>
@@ -114,11 +137,6 @@
                 <section>
                     <h2>Directive to Controllers Communication</h2>
                 </section>
-
-                <section>
-                    <h2>Directive to Directive Communication</h2>
-                </section>
-
 			</div>
 
 		</div>

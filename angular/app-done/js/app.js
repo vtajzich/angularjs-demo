@@ -1,12 +1,4 @@
-var app = angular.module('angularDemoApp', ['ui', 'ngResource', 'demo.filters', 'demo.directives', 'demo.services', 'demo.controllers', 'demo.resources']);
+var app = angular.module('app', ['ngResource', 'demo.controllers', 'demo.services', 'demo.resources', 'demo.directives']);
 
-app.config(['$routeProvider', function ($routeProvider) {
-
-    $routeProvider.when('/', {templateUrl: 'partials/list.html', controller: 'TodoCtrl'});
-
-
-//    $routeProvider.when('/deals', {templateUrl: 'partials/dealList.html', controller: 'DealListCtrl'});
-
-//    $routeProvider.when('/deal/details/:id', {templateUrl: 'partials/dealDetail.html', controller: 'DealDetailCtrl'});
-    $routeProvider.otherwise({redirectTo: '/'});
-}]);
+app.constant('pi', 3.14);
+app.value('version', '1.0');

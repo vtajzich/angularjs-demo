@@ -4,24 +4,20 @@ services.service('TodoService', function (TodoResource) {
 
     var service = {
 
-        data: {
-            current: undefined
+        loadTodos: function () {
+            return TodoResource.query();
         },
 
-        add: function (todo, callback) {
-            TodoResource.save([], todo, callback);
-        },
-
-        delete: function (todo) {
-            TodoResource.delete({id: todo['_id']});
+        save: function (todo, callback) {
+            TodoResource.save({}, todo, callback);
         },
 
         update: function (todo, callback) {
-            TodoResource.update({id: todo['_id']}, todo, callback);
+            TodoResource.update({}, todo, callback);
         },
 
-        findAll: function () {
-            return TodoResource.query();
+        delete: function (todo, callback) {
+            TodoResource.delete({id: todo.id}, {}, callback);
         }
     };
 

@@ -20,6 +20,7 @@ class Todo {
     String label
     String description
     boolean done
+    User user
 
     public boolean isDone() {
         return done

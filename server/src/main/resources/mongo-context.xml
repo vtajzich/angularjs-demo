@@ -20,5 +20,9 @@
     <!-- repositories -->
     <mongo:repositories base-package="net.tajzich.angular.demo.repository"/>
 
+    <bean id="usersBootstrap" class="net.tajzich.angular.demo.bootstrap.UsersBootstrap">
+
+    </bean>
+
 </beans>
 

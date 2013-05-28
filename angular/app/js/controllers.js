@@ -1,31 +1,26 @@
 var controllers = angular.module('demo.controllers', []);
 
-controllers.controller('TodoCtrl', function ($scope, PI, version, TodoService) {
+controllers.controller('TodoCtrl', function ($scope, TodoService, pi, UserResource) {
 
-    var loadData = function () {
-        $scope.todos = TodoService.list();
-    }
-
-    loadData();
-
-    $scope.send = function () {
-        console.log($scope.name);
+    var loadTodos = function () {
+        $scope.todos = TodoService.loadTodos();
     };
 
-    $scope.save = function () {
-        TodoService.save($scope.todo, loadData);
+    loadTodos();
+
+    $scope.users = UserResource.query();
+
+    $scope.pi = pi;
+
+    $scope.addTodo = function () {
+
+        TodoService.save($scope.todo, loadTodos);
+
         $scope.todo = {};
     };
 
     $scope.delete = function (todo) {
-        TodoService.delete(todo, loadData);
-    };
-
-    $scope.mojeMetoda = function (todo) {
-        TodoService.update(todo, loadData);
-    };
-
-    $scope.deleteAll = function(todos) {
-
+        TodoService.delete(todo, loadTodos);
     };
 });
+

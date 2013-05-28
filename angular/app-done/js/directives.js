@@ -1,36 +1,16 @@
 var directives = angular.module('demo.directives', []);
 
-
-directives.directive('todoEdit', function () {
-
-    return {
-
-        restrict: 'A',
-        scope: {
-            todo: '=',
-            finish: '&'
-        },
-        templateUrl: 'partials/todo_edit.html',
-        link: function ($scope, element, attrs) {
-
-        }
-    };
-});
-
-directives.directive('todoDetails', function () {
+directives.directive('gavatar', function (GavatarResource) {
 
     return {
 
-        restrict: 'A',
+        restrict: 'AE',
         scope: {
-            todo: '='
+            user: '='
         },
-        templateUrl: 'partials/todo_details.html',
+        templateUrl: 'partials/gavatar.html',
         link: function ($scope, element, attrs) {
-
         }
     };
 });
-
-
 

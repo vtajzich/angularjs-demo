@@ -1,62 +1,26 @@
 var controllers = angular.module('demo.controllers', []);
 
+controllers.controller('TodoCtrl', function ($scope, TodoService, pi, UserResource) {
 
-controllers.controller('TodoCtrl', function ($scope, TodoService) {
-
-    var ctrl = {
-
-        init: function () {
-            ctrl.loadTodos();
-            ctrl.initNewTodo();
-        },
-
-        initNewTodo: function () {
-            $scope.todo = undefined;
-        },
-
-        loadTodos: function () {
-            $scope.todos = TodoService.findAll();
-        }
+    var loadTodos = function () {
+        $scope.todos = TodoService.loadTodos();
     };
+
+    loadTodos();
+
+    $scope.users = UserResource.query();
+
+    $scope.pi = pi;
 
     $scope.addTodo = function () {
 
-        console.log('addTodo');
+        TodoService.save($scope.todo, loadTodos);
 
-        TodoService.addTodo(TodoService.data.current, function () {
-            ctrl.loadTodos();
-            ctrl.initNewTodo();
-        });
+        $scope.todo = {};
     };
 
-    $scope.deleteTodo = function () {
-        TodoService.delete(TodoService.data.current);
-        ctrl.loadTodos();
+    $scope.delete = function (todo) {
+        TodoService.delete(todo, loadTodos);
     };
-
-    $scope.updateTodo = function () {
-
-        TodoService.update(TodoService.data.current, function () {
-            ctrl.loadTodos();
-            ctrl.initNewTodo();
-        });
-    };
-
-
-    $scope.selectTodo = function (todo) {
-        TodoService.data.current = todo;
-
-        console.log('selected todo:');
-        console.log(TodoService.data.current);
-    };
-
-    ctrl.init();
-
-    return ctrl;
 });
 
-
-controllers.controller('EditController', function ($scope, TodoService) {
-
-    $scope.data = TodoService.data;
-});
