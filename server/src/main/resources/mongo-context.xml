@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/data/mongo
+        http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd">
+
+    <mongo:mongo id="mongo" host="localhost" port="27017"/>
+
+    <mongo:db-factory id="mongoDbFactory" dbname="angularDemo" mongo-ref="mongo"/>
+
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg index="0" ref="mongoDbFactory" type="org.springframework.data.mongodb.MongoDbFactory"/>
+        <constructor-arg index="1" ref="mogoConverter" type="org.springframework.data.mongodb.core.convert.MongoConverter"/>
+    </bean>
+
+    <mongo:mapping-converter id="mogoConverter" db-factory-ref="mongoDbFactory" mongo-ref="mongo" mongo-template-ref="mongoTemplate">
+    </mongo:mapping-converter>
+
+    <!-- repositories -->
+    <mongo:repositories base-package="net.tajzich.angular.demo.repository"/>
+
+</beans>
+

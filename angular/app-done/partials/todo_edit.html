@@ -1,0 +1,23 @@
+<div>
+    <form name="todoForm">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label">Label</label>
+                <div class="controls">
+                    <input type="text" ng-model="todo.label" name="label" placeholder="Label">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Description</label>
+                <div class="controls">
+                    <input type="text" ng-model="todo.description" name="description" placeholder="Description">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <button class="btn" ng-click="finish()">Save</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
