@@ -20,6 +20,6 @@
 .animate-leave.animate-leave-active,
 .animate-enter {
     opacity: 0;
-    top: -80px;
+    top: -200px;
     height: 0px;
 }

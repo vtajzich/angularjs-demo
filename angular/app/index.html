@@ -3,13 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>Angular Demo</title>
-    <link rel="stylesheet" href="lib/angular-ui/angular-ui.min.css"/>
-
     <!-- jQuery -->
     <script src="lib/jquery/jquery-1.9.1.min.js"></script>
-
-    <!-- underscore -->
-    <script src="lib/underscore/underscore-min.js"></script>
 
     <!-- angular -->
     <script src="lib/angular/1.1.5/angular.js"></script>
@@ -31,35 +26,39 @@
 </head>
 <body>
 
-<div class="container-fluid" ng-controller="TodoCtrl">
-    <div class="row-fluid">
-        <input type="text" ng-model="search.label" />
-        {{search}}
+<div class="container-fluid">
+
+    <div ng-controller="TodoCtrl">
+        <input type="text" ng-model="data.search" />
+
+        {{data.search}}
+
+        <table class="table table-bordered table-striped table-hover">
+            <tr>
+                <th>Avatar</th>
+                <th>id</th>
+                <th>label</th>
+                <th>done</th>
+                <th>Actions</th>
+            </tr>
+            <tr ng-repeat="todo in todos | filter:data.search" ng-animate="'animate'">
+                <td><avatar user="todo.user" say-hello="sayHello"></avatar></td>
+                <td>{{todo.id}}</td>
+                <td>{{todo.label}}</td>
+                <td>{{todo.done}}</td>
+                <td><button ng-click="delete(todo)">Delete</button></td>
+            </tr>
+        </table>
+
+        <div>
+            label: <input type="text" ng-model="todo.label"/><br/>
+            <avatar user="todo.user"></avatar>
+            <select ng-model="todo.user" ng-options="u.fullName for u in users"></select>
+            <button ng-click="addTodo(todo)">Add</button>
+        </div>
+
     </div>
 
-    pi: {{pi}}
-
-    <table class="table table-bordered table-striped table-hover">
-        <tr>
-            <ht></ht>
-            <th>id</th>
-            <th>label</th>
-            <th>done</th>
-        </tr>
-        <tr ng-repeat="todo in todos | filter:search" ng-animate="'animate'">
-            <td gavatar user="todo.user"></td>
-            <td>{{todo.id}}</td>
-            <td>{{todo.label}}</td>
-            <td>{{todo.done}}</td>
-            <td><button ng-click="delete(todo)">smazat</button></td>
-        </tr>
-    </table>
-
-    <div>
-        label: <input type="text" ng-model="todo.label"/><br/>
-        <gavatar user="todo.user"></gavatar><select ng-model="todo.user" ng-options="user.fullName for user in users"></select><br />
-        <button ng-click="addTodo()">Add</button>
-    </div>
 </div>
 
 </body>

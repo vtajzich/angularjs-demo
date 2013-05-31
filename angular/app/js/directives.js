@@ -1,16 +1,17 @@
 var directives = angular.module('demo.directives', []);
 
-directives.directive('gavatar', function (GavatarResource) {
+directives.directive('avatar', function () {
 
     return {
 
         restrict: 'AE',
         scope: {
-            user: '='
+            user: '=',
+            sayHello: '&'
         },
-        templateUrl: 'partials/gavatar.html',
+        templateUrl: 'partials/gravatar.html',
         link: function ($scope, element, attrs) {
+
         }
     };
 });
-
